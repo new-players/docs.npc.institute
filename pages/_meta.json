@@ -1,7 +1,4 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
   "about": {
     "title": "About",
     "type": "page"
@@ -11,5 +8,17 @@
     "type": "page",
     "href": "https://npc.opgames.org",
     "newWindow": true
+  },
+  "index": "Introduction", 
+  "dispatches": "Coop Dispatches",
+
+
+  "another": {
+    "title": "Another Page",
+    "display": "hidden"
+  },
+  "advanced": {
+    "title": "Advanced",
+    "display": "hidden"
   }
 }

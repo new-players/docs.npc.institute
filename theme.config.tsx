@@ -17,6 +17,16 @@ const config: DocsThemeConfig = {
   },
   */
   docsRepositoryBase: 'https://github.com/new-players/docs.npc.institute',
+  sidebar: {
+    titleComponent({ title, type }) {
+      if (type === 'separator') {
+        return <span className="cursor-default">{title}</span>
+      }
+      return <>{title}</>
+    },
+    defaultMenuCollapseLevel: 1,
+    toggleButton: true
+  },  
   footer: {
     text: 'MIT 2024 © New Players Cooperative',
   },
