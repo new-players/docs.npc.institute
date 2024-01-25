@@ -9,6 +9,7 @@ console.log(a);
 ## Component
 
 import { useState } from 'react'
+import { ObsidianCanvas } from '../components/obsidian-canvas'
 
 {/* Import CSS modules */}
 import styles from '../components/counters.module.css'
@@ -23,9 +24,11 @@ export const Counter = () => {
 };
 
 <Counter/>
+<ObsidianCanvas/>
 
 ## External Component
 
 import Counters from '../components/counters'
 
 <Counters />
+

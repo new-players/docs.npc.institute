@@ -6,7 +6,7 @@ const logo = 'logo.jpg'
 const config: DocsThemeConfig = {
   logo: 
     <span>
-      <img src={logo} alt="New Players Cooperative" width="50px" height="50px" />
+      <img src={logo} alt="npc.institute" width="110px" />
     </span>,
   project: {
     link: 'https://github.com/new-players',
