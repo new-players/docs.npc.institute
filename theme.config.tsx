@@ -1,5 +1,6 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import { RainbowKitCustomConnectButton } from 'components/RainbowKitCustomConnectButton'
 
 const logo = 'logo.jpg'
 
@@ -30,6 +31,11 @@ const config: DocsThemeConfig = {
   footer: {
     text: 'MIT 2024 © New Players Cooperative',
   },
+  navbar: {
+    extraContent: (
+      <RainbowKitCustomConnectButton />
+    )
+  }  
 }
 
 export default config
