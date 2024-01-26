@@ -1,6 +1,6 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
-import { RainbowKitCustomConnectButton } from 'components/RainbowKitCustomConnectButton'
+import { RainbowKitCustomConnectButton } from './components/RainbowKitCustomConnectButton'
 
 const logo = 'logo.jpg'
 
