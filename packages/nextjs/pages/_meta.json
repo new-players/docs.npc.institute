@@ -1,7 +1,15 @@
 {
-  "about": {
-    "title": "About",
-    "type": "page"
+  "index": {
+    "type": "page",
+    "title": "NPC Institute",
+    "display": "hidden",
+    "theme": {
+      "layout": "raw"
+    }
+  },  
+  "docs": {
+    "type": "page",
+    "title": "Documentation"
   },
   "contact": {
     "title": "Join Co-op ↗",
@@ -9,9 +17,6 @@
     "href": "https://npc.opgames.org",
     "newWindow": true
   },
-  "index": "Introduction", 
-  "spark": "Spark",
-  "dispatches": "Coop Dispatches",
 
 
   "another": {

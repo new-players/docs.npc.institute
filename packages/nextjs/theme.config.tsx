@@ -29,7 +29,7 @@ const config: DocsThemeConfig = {
     toggleButton: true
   },  
   footer: {
-    text: 'MIT 2024 © New Players Cooperative',
+    text: 'MIT 2024 © OP Games',
   },
   navbar: {
     extraContent: (
