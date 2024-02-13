@@ -3,6 +3,7 @@ import { DocsThemeConfig } from 'nextra-theme-docs'
 import { RainbowKitCustomConnectButton } from './components/RainbowKitCustomConnectButton'
 
 const logo = 'logo.jpg'
+const opg = 'opg.png'
 
 const config: DocsThemeConfig = {
   logo: 
@@ -29,8 +30,21 @@ const config: DocsThemeConfig = {
     toggleButton: true
   },  
   footer: {
-    text: 'MIT 2024 © OP Games',
+    text: (
+      <span>
+        <p>
+        MIT {new Date().getFullYear()} ©{' '}
+        <a href="https://opgames.org" target="_blank">
+        <img src={opg} alt="npc.institute" width="110px" />
+        </a>
+        </p>
+      </span>      
+    )
   },
+  search: false,
+  darkMode: false,
+  primaryHue: 25,
+  primarySaturation: 100,
   navbar: {
     extraContent: (
       <RainbowKitCustomConnectButton />

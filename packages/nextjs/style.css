@@ -2,8 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --hero-background: #FFFBEC;
+  --npc-text: #F05A28;
+  --bg-box-color: #000dff30;
+  --brand-black: #231F20;
+  --dark-gray: #3E323F; 
+  --base-gray: #646265;
+  --ash-gray: #BAB8BB;
+  --silver-gray: #E6E6E6;
+  --background-gray: #F9F9F9;
+  --success-green: #19AF66;
+  --brand-red: #D22;
+  --brand-orange: #FB6E00;
+  --brand-yellow: #FFC500;
+  --orange-light8: #FFF4EB;
+  --brand-purple: #8C0082;
+  --mid-purple: #720096;
+  --dark-purple: #5B0078;
+  --primary-gradient: linear-gradient(104deg, #FFC500 0.85%, #DC2223 41.65%, #720096 100%);
+  --secondary-gradient: linear-gradient(328deg, #FB6E00 0%, #FFC500 100%);
+}
+
 body {
   font-feature-settings: 'rlig' 1, 'calt' 1;
+  color: var(--primary-gradient);  
+  opacity: 0.8;
+  background-image:  linear-gradient( var(--bg-box-color) 1px, transparent 1px), linear-gradient(to right, var(--bg-box-color) 1px, var(--hero-background) 1px);
+  background-size: 20px 20px;  
+}
+
+nav {
+  background: #FFEFDD;
+  color: var(--npc-text);
+
+}
+
+a span {
+  color: var(--npc-text);
 }
 
 .home-content p {
@@ -18,6 +54,7 @@ body {
   text-decoration-line: underline;
   text-decoration-thickness: from-font;
   color: hsl(var(--nextra-primary-hue) 100% 50% / var(--tw-text-opacity));
+  
 }
 
 figcaption {
@@ -69,7 +106,7 @@ p {
 }
 
 .btn {
-  @apply shadow-md;
+  @apply shadow-lg;
 }
 
 .btn.btn-ghost {
