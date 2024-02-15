@@ -3968,6 +3968,1329 @@ const contracts = {
       },
     },
   ],
+  11155111: [
+    {
+      chainId: "11155111",
+      name: "sepolia",
+      contracts: {
+        ERC6551Manager: {
+          address: "0xCDABd764e0D293150D24Cdc153EB9D11196212a5",
+          abi: [
+            {
+              inputs: [
+                {
+                  internalType: "address",
+                  name: "_registryAddress",
+                  type: "address",
+                },
+                {
+                  internalType: "address",
+                  name: "_proxyAddress",
+                  type: "address",
+                },
+                {
+                  internalType: "address",
+                  name: "_implementationAddress",
+                  type: "address",
+                },
+                {
+                  internalType: "bytes32",
+                  name: "_salt",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "address",
+                  name: "_owner",
+                  type: "address",
+                },
+              ],
+              stateMutability: "nonpayable",
+              type: "constructor",
+            },
+            {
+              inputs: [],
+              name: "AccessControlBadConfirmation",
+              type: "error",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+                {
+                  internalType: "bytes32",
+                  name: "neededRole",
+                  type: "bytes32",
+                },
+              ],
+              name: "AccessControlUnauthorizedAccount",
+              type: "error",
+            },
+            {
+              inputs: [],
+              name: "IncompatibleNFTContract",
+              type: "error",
+            },
+            {
+              inputs: [],
+              name: "InvalidBytes32",
+              type: "error",
+            },
+            {
+              inputs: [],
+              name: "ZeroAddressNotAllowed",
+              type: "error",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: false,
+                  internalType: "address",
+                  name: "oldImplementationAddress",
+                  type: "address",
+                },
+                {
+                  indexed: false,
+                  internalType: "address",
+                  name: "newImplementationAddress",
+                  type: "address",
+                },
+              ],
+              name: "ERC6551ImplementationUpdated",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: false,
+                  internalType: "address",
+                  name: "oldProxyAddress",
+                  type: "address",
+                },
+                {
+                  indexed: false,
+                  internalType: "address",
+                  name: "newProxyAddress",
+                  type: "address",
+                },
+              ],
+              name: "ERC6551ProxyUpdated",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: false,
+                  internalType: "address",
+                  name: "oldRegistryAddress",
+                  type: "address",
+                },
+                {
+                  indexed: false,
+                  internalType: "address",
+                  name: "newRegistryAddress",
+                  type: "address",
+                },
+              ],
+              name: "ERC6551RegistryUpdated",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: false,
+                  internalType: "bytes32",
+                  name: "oldSalt",
+                  type: "bytes32",
+                },
+                {
+                  indexed: false,
+                  internalType: "bytes32",
+                  name: "newSalt",
+                  type: "bytes32",
+                },
+              ],
+              name: "ERC6551SaltUpdated",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "previousAdminRole",
+                  type: "bytes32",
+                },
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "newAdminRole",
+                  type: "bytes32",
+                },
+              ],
+              name: "RoleAdminChanged",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "sender",
+                  type: "address",
+                },
+              ],
+              name: "RoleGranted",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "sender",
+                  type: "address",
+                },
+              ],
+              name: "RoleRevoked",
+              type: "event",
+            },
+            {
+              inputs: [],
+              name: "DEFAULT_ADMIN_ROLE",
+              outputs: [
+                {
+                  internalType: "bytes32",
+                  name: "",
+                  type: "bytes32",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "address",
+                  name: "_nftContractAddress",
+                  type: "address",
+                },
+                {
+                  internalType: "uint256",
+                  name: "_tokenId",
+                  type: "uint256",
+                },
+              ],
+              name: "createTokenBoundAccount",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "tokenBoundAccountAddress",
+                  type: "address",
+                },
+              ],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [],
+              name: "erc6551ImplementationAddress",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "",
+                  type: "address",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [],
+              name: "erc6551ProxyAddress",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "",
+                  type: "address",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [],
+              name: "erc6551RegistryAddress",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "",
+                  type: "address",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [],
+              name: "erc6551Salt",
+              outputs: [
+                {
+                  internalType: "bytes32",
+                  name: "",
+                  type: "bytes32",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+              ],
+              name: "getRoleAdmin",
+              outputs: [
+                {
+                  internalType: "bytes32",
+                  name: "",
+                  type: "bytes32",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "uint256",
+                  name: "index",
+                  type: "uint256",
+                },
+              ],
+              name: "getRoleMember",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "",
+                  type: "address",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+              ],
+              name: "getRoleMemberCount",
+              outputs: [
+                {
+                  internalType: "uint256",
+                  name: "",
+                  type: "uint256",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "address",
+                  name: "_nftContractAddress",
+                  type: "address",
+                },
+                {
+                  internalType: "uint256",
+                  name: "_tokenId",
+                  type: "uint256",
+                },
+              ],
+              name: "getTokenBoundAccount",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "tokenBoundAccountAddress",
+                  type: "address",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+              ],
+              name: "grantRole",
+              outputs: [],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+              ],
+              name: "hasRole",
+              outputs: [
+                {
+                  internalType: "bool",
+                  name: "",
+                  type: "bool",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "address",
+                  name: "callerConfirmation",
+                  type: "address",
+                },
+              ],
+              name: "renounceRole",
+              outputs: [],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+              ],
+              name: "revokeRole",
+              outputs: [],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "address",
+                  name: "_implementationAddress",
+                  type: "address",
+                },
+              ],
+              name: "setupERC6551Implementation",
+              outputs: [],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "address",
+                  name: "_proxyAddress",
+                  type: "address",
+                },
+              ],
+              name: "setupERC6551Proxy",
+              outputs: [],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "address",
+                  name: "_registryAddress",
+                  type: "address",
+                },
+              ],
+              name: "setupERC6551Registry",
+              outputs: [],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "_salt",
+                  type: "bytes32",
+                },
+              ],
+              name: "setupERC6551Salt",
+              outputs: [],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes4",
+                  name: "interfaceId",
+                  type: "bytes4",
+                },
+              ],
+              name: "supportsInterface",
+              outputs: [
+                {
+                  internalType: "bool",
+                  name: "",
+                  type: "bool",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+          ],
+        },
+        SparkIdentityTokenFactory: {
+          address: "0x7C95bc571A611A287a52dC30b208D61DDD3f7f72",
+          abi: [
+            {
+              inputs: [
+                {
+                  internalType: "address",
+                  name: "_owner",
+                  type: "address",
+                },
+              ],
+              stateMutability: "nonpayable",
+              type: "constructor",
+            },
+            {
+              inputs: [],
+              name: "AccessControlBadConfirmation",
+              type: "error",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+                {
+                  internalType: "bytes32",
+                  name: "neededRole",
+                  type: "bytes32",
+                },
+              ],
+              name: "AccessControlUnauthorizedAccount",
+              type: "error",
+            },
+            {
+              inputs: [],
+              name: "DeployerRoleMissing",
+              type: "error",
+            },
+            {
+              inputs: [],
+              name: "InvalidBytecode",
+              type: "error",
+            },
+            {
+              inputs: [],
+              name: "InvalidSalt",
+              type: "error",
+            },
+            {
+              inputs: [],
+              name: "ZeroAddressNotAllowed",
+              type: "error",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "previousAdminRole",
+                  type: "bytes32",
+                },
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "newAdminRole",
+                  type: "bytes32",
+                },
+              ],
+              name: "RoleAdminChanged",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "sender",
+                  type: "address",
+                },
+              ],
+              name: "RoleGranted",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "sender",
+                  type: "address",
+                },
+              ],
+              name: "RoleRevoked",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "contractAddress",
+                  type: "address",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "deployedBy",
+                  type: "address",
+                },
+              ],
+              name: "SparkIdentityTokenContractDeployed",
+              type: "event",
+            },
+            {
+              inputs: [],
+              name: "DEFAULT_ADMIN_ROLE",
+              outputs: [
+                {
+                  internalType: "bytes32",
+                  name: "",
+                  type: "bytes32",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [],
+              name: "DEPLOYER_ROLE",
+              outputs: [
+                {
+                  internalType: "bytes32",
+                  name: "",
+                  type: "bytes32",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "_salt",
+                  type: "bytes32",
+                },
+              ],
+              name: "computeAddress",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "contractAddress",
+                  type: "address",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "uint256",
+                  name: "_amount",
+                  type: "uint256",
+                },
+                {
+                  internalType: "bytes32",
+                  name: "_salt",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "bytes",
+                  name: "_bytecode",
+                  type: "bytes",
+                },
+              ],
+              name: "determinsiticDeploy",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "deployedContractAddress",
+                  type: "address",
+                },
+              ],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+              ],
+              name: "getRoleAdmin",
+              outputs: [
+                {
+                  internalType: "bytes32",
+                  name: "",
+                  type: "bytes32",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "uint256",
+                  name: "index",
+                  type: "uint256",
+                },
+              ],
+              name: "getRoleMember",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "",
+                  type: "address",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+              ],
+              name: "getRoleMemberCount",
+              outputs: [
+                {
+                  internalType: "uint256",
+                  name: "",
+                  type: "uint256",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+              ],
+              name: "grantRole",
+              outputs: [],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+              ],
+              name: "hasRole",
+              outputs: [
+                {
+                  internalType: "bool",
+                  name: "",
+                  type: "bool",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "address",
+                  name: "callerConfirmation",
+                  type: "address",
+                },
+              ],
+              name: "renounceRole",
+              outputs: [],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+              ],
+              name: "revokeRole",
+              outputs: [],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes4",
+                  name: "interfaceId",
+                  type: "bytes4",
+                },
+              ],
+              name: "supportsInterface",
+              outputs: [
+                {
+                  internalType: "bool",
+                  name: "",
+                  type: "bool",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+          ],
+        },
+        SparkRegistryFactory: {
+          address: "0x241DE3ce6D38B11518A8724F05f394735d3D6FbB",
+          abi: [
+            {
+              inputs: [
+                {
+                  internalType: "address",
+                  name: "_owner",
+                  type: "address",
+                },
+              ],
+              stateMutability: "nonpayable",
+              type: "constructor",
+            },
+            {
+              inputs: [],
+              name: "AccessControlBadConfirmation",
+              type: "error",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+                {
+                  internalType: "bytes32",
+                  name: "neededRole",
+                  type: "bytes32",
+                },
+              ],
+              name: "AccessControlUnauthorizedAccount",
+              type: "error",
+            },
+            {
+              inputs: [],
+              name: "DeployerRoleMissing",
+              type: "error",
+            },
+            {
+              inputs: [],
+              name: "InvalidBytecode",
+              type: "error",
+            },
+            {
+              inputs: [],
+              name: "InvalidSalt",
+              type: "error",
+            },
+            {
+              inputs: [],
+              name: "ZeroAddressNotAllowed",
+              type: "error",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "previousAdminRole",
+                  type: "bytes32",
+                },
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "newAdminRole",
+                  type: "bytes32",
+                },
+              ],
+              name: "RoleAdminChanged",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "sender",
+                  type: "address",
+                },
+              ],
+              name: "RoleGranted",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: true,
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "sender",
+                  type: "address",
+                },
+              ],
+              name: "RoleRevoked",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "contractAddress",
+                  type: "address",
+                },
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "deployedBy",
+                  type: "address",
+                },
+              ],
+              name: "SparkRegistryContractDeployed",
+              type: "event",
+            },
+            {
+              inputs: [],
+              name: "DEFAULT_ADMIN_ROLE",
+              outputs: [
+                {
+                  internalType: "bytes32",
+                  name: "",
+                  type: "bytes32",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [],
+              name: "DEPLOYER_ROLE",
+              outputs: [
+                {
+                  internalType: "bytes32",
+                  name: "",
+                  type: "bytes32",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "_salt",
+                  type: "bytes32",
+                },
+              ],
+              name: "computeAddress",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "contractAddress",
+                  type: "address",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "uint256",
+                  name: "_amount",
+                  type: "uint256",
+                },
+                {
+                  internalType: "bytes32",
+                  name: "_salt",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "bytes",
+                  name: "_bytecode",
+                  type: "bytes",
+                },
+              ],
+              name: "determinsiticDeploy",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "deployedContractAddress",
+                  type: "address",
+                },
+              ],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+              ],
+              name: "getRoleAdmin",
+              outputs: [
+                {
+                  internalType: "bytes32",
+                  name: "",
+                  type: "bytes32",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "uint256",
+                  name: "index",
+                  type: "uint256",
+                },
+              ],
+              name: "getRoleMember",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "",
+                  type: "address",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+              ],
+              name: "getRoleMemberCount",
+              outputs: [
+                {
+                  internalType: "uint256",
+                  name: "",
+                  type: "uint256",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+              ],
+              name: "grantRole",
+              outputs: [],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+              ],
+              name: "hasRole",
+              outputs: [
+                {
+                  internalType: "bool",
+                  name: "",
+                  type: "bool",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "address",
+                  name: "callerConfirmation",
+                  type: "address",
+                },
+              ],
+              name: "renounceRole",
+              outputs: [],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes32",
+                  name: "role",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "address",
+                  name: "account",
+                  type: "address",
+                },
+              ],
+              name: "revokeRole",
+              outputs: [],
+              stateMutability: "nonpayable",
+              type: "function",
+            },
+            {
+              inputs: [
+                {
+                  internalType: "bytes4",
+                  name: "interfaceId",
+                  type: "bytes4",
+                },
+              ],
+              name: "supportsInterface",
+              outputs: [
+                {
+                  internalType: "bool",
+                  name: "",
+                  type: "bool",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+          ],
+        },
+      },
+    },
+  ],
 } as const;
 
 export default contracts;
