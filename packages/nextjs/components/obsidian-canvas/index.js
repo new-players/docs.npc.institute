@@ -118,7 +118,7 @@ export function ObsidianCanvas() {
 
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
   const proOptions = { hideAttribution: true };
-  const { canvasNodes, canvasEdges, loading } = useLoadJson('/roadmap.canvas');
+  const { canvasNodes, canvasEdges, loading } = useLoadJson('/contracts.canvas');
 
   const updateReactFlow = async (e) => {
     // const address = e.updated_src.address;

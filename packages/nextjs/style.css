@@ -24,14 +24,6 @@
   --secondary-gradient: linear-gradient(328deg, #FB6E00 0%, #FFC500 100%);
 }
 
-body {
-  font-feature-settings: 'rlig' 1, 'calt' 1;
-  color: var(--primary-gradient);  
-  opacity: 0.8;
-  background-image:  linear-gradient( var(--bg-box-color) 1px, transparent 1px), linear-gradient(to right, var(--bg-box-color) 1px, var(--hero-background) 1px);
-  background-size: 20px 20px;  
-}
-
 nav {
   background: #FFEFDD;
   color: var(--npc-text);
@@ -45,6 +37,13 @@ a span {
 .home-content p {
   margin-top: 1.5em;
   line-height: 1.75em;
+}
+
+.home-content {
+  color: var(--primary-gradient);  
+  opacity: 0.8;
+  background-image:  linear-gradient( var(--bg-box-color) 1px, transparent 1px), linear-gradient(to right, var(--bg-box-color) 1px, var(--hero-background) 1px);
+  background-size: 20px 20px;    
 }
 
 .home-content a {
