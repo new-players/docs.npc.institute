@@ -1,0 +1,15 @@
+.logotext {
+    margin-top: -4px;
+	text-transform: uppercase;
+	text-align: center;
+	-webkit-background-clip: text;
+    font-size: 1.6rem;
+}
+
+.logotext2 {
+    margin-top: -8px;
+    text-transform: uppercase;
+    text-align: center;
+    -webkit-background-clip: text;
+    font-size: 0.6rem;
+    }
