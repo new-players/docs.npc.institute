@@ -11,7 +11,8 @@ import { useState } from 'react'
 import styles from './index.module.css'
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import { NPC3D } from '~~/components/npc3d'
-
+import { Overlay } from '~~/components/homepage/Overlay'
+import { BackgroundCanvas } from '~~/components/homepage/Canvas'
 
 export function AccountInfo() {
   const { address, isConnected } = useAccount()
@@ -115,15 +116,7 @@ export function I18n() {
     />
   )
 }
-
-<div className="home-content">
-  <div className="content-container">
-    <h1 className="headline">From static NFTs <br className='sm:block hidden'/>to autonomous NPCs.</h1>
-    <p className="subtitle">Bring your NFT collections to life, powered by <br className='sm:block hidden'/>the ERC-6551 standard and generative AI.</p>
-    <p className="subtitle">
-      <Link className={styles.cta} href="/docs">Get started <span>→</span></Link>
-    </p>
-  </div>
+  
   <style jsx>{`
     .content-container {
       max-width: 90rem;
@@ -317,15 +310,29 @@ export function I18n() {
       }
     }
   `}</style>
-  <div className="features-container">
-    <div className="content-container">
-        <Features>
-          <Feature index={0} large centered id="docs-card">
-            <NPC3D/>
-          </Feature>
-        </Features>
-      </div>
-    </div>
 
-  
-</div>
+  <div className="mainpage" style={{ height: "800px" }}>
+    <BackgroundCanvas/>
+  </div>
+  <Overlay/>
+{/*
+  <div className="home-content">
+    <NPC3D/>
+    <div className="content-container">
+      <h1 className="headline">From static NFTs <br className='sm:block hidden'/>to autonomous NPCs.</h1>
+      <p className="subtitle">Bring your NFT collections to life, powered by <br className='sm:block hidden'/>the ERC-6551 standard and generative AI.</p>
+      <p className="subtitle">
+        <Link className={styles.cta} href="/docs">Get started <span>→</span></Link>
+      </p>
+    </div>
+    <div className="features-container">
+      <div className="content-container">
+          <Features>
+            <Feature index={0} large centered id="docs-card">
+              <NPC3D/>
+            </Feature>
+          </Features>
+        </div>
+      </div>
+  </div>
+*/}

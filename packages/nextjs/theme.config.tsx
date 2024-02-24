@@ -28,11 +28,19 @@ const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/new-players',
   },
-  /*
   chat: {
-    link: 'https://discord.com',
+    link: 'https://join.slack.com/t/newplayerscooperative/shared_invite/zt-2dcakmn2r-mCT19iMCin3w0R~M5qGv6Q',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 60 60">
+        <g fill="currentColor">
+          <path d="M22,12 a6,6 0 1 1 6,-6 v6z M22,16 a6,6 0 0 1 0,12 h-16 a6,6 0 1 1 0,-12"/>
+          <path d="M48,22 a6,6 0 1 1 6,6 h-6z M32,6 a6,6 0 1 1 12,0v16a6,6 0 0 1 -12,0z"/>
+          <path d="M38,48 a6,6 0 1 1 -6,6 v-6z M54,32 a6,6 0 0 1 0,12 h-16 a6,6 0 1 1 0,-12"/>
+          <path d="M12,38 a6,6 0 1 1 -6,-6 h6z M16,38 a6,6 0 1 1 12,0v16a6,6 0 0 1 -12,0z"/>
+        </g>
+     </svg>
+    )
   },
-  */
   docsRepositoryBase: 'https://github.com/new-players/docs.npc.institute',
   sidebar: {
     titleComponent({ title, type }) {
@@ -45,7 +53,8 @@ const config: DocsThemeConfig = {
     toggleButton: true
   },  
   footer: {
-    text: (
+    text: 
+    (
       <span>
         <p>
         MIT {new Date().getFullYear()} ©{' '}

@@ -8,7 +8,11 @@ export function NPC3D() {
     <Suspense fallback={null}>
       <Canvas shadows flat linear>
         <Scene />
+        { 
+        /*
         <OrbitControls />
+        */
+        }
       </Canvas>
     </Suspense>
   )

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,600;1,900&display=swap');
+@import url('https://rsms.me/inter/inter.css');
+
 :root {
   --hero-background: #FFFBEC;
   --npc-text: #F05A28;
@@ -39,7 +42,7 @@ a span {
   line-height: 1.75em;
 }
 
-.home-content {
+.mainpage {
   color: var(--primary-gradient);  
   opacity: 0.8;
   background-image:  linear-gradient( var(--bg-box-color) 1px, transparent 1px), linear-gradient(to right, var(--bg-box-color) 1px, var(--hero-background) 1px);
@@ -110,4 +113,56 @@ p {
 
 .btn.btn-ghost {
   @apply shadow-none;
+}
+
+canvas {
+  opacity: 0;
+  touch-action: none;
+  animation: fade-in 3s ease 1s forwards;
+}
+
+.section--container {
+  margin-left: 3vw;
+}
+
+.section--container h1 {
+  color: var(--npc-text);
+  font-weight: 900;
+  font-size: 8rem;
+  letter-spacing: -6px;
+  font-style: italic;
+  width: 60%;
+  line-height: 10rem;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+@media screen and (max-width: 650px) {
+
+  canvas {
+    height: 10px;
+  }
+
+  .section--container {
+    margin-left: 5vw;
+  }
+
+  .section--container h1 {
+    font-size: 4rem;
+    letter-spacing: -6px;
+    line-height: 6rem;
+  }
+
+  .color-options {
+    margin-bottom: 20px;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+  }
+
+  .support--content {
+    top: -10%;
+    left: 0;
+  }
 }
