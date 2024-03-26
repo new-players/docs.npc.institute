@@ -1,3 +1,0 @@
-[submodule "packages/hardhat"]
-	path = packages/hardhat
-	url = https://github.com/new-players/spark-nft-token.git
