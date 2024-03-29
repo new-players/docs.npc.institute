@@ -11,14 +11,16 @@
     "type": "page",
     "title": "Learn"
   },
+  "npcs": {
+    "type": "page",
+    "title": "My NPCs"
+  },
   "contact": {
     "title": "Join Co-op ↗",
     "type": "page",
     "href": "https://newplayers.coop",
     "newWindow": true
   },
-
-
   "another": {
     "title": "Another Page",
     "display": "hidden"

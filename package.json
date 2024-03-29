@@ -12,7 +12,7 @@
   "scripts": {
     "start": "yarn workspace @npc-institute/nextjs dev",
     "build": "yarn workspace @npc-institute/nextjs build",
-    "chain": "yarn workspace spark-identity-token chain"
+    "chain": "yarn workspace @npc-institute/smart-contracts chain"
   },
   "packageManager": "yarn@3.2.3"
 }
