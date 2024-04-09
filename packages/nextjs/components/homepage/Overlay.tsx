@@ -27,7 +27,7 @@ export function Overlay() {
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ type: 'spring', damping: 5, stiffness: 40, restDelta: 0.001, duration: 0.3 }}>
-                <h1>NFTs to NPCs</h1>
+                <h1>Reimagine NPCs</h1>
               </motion.div>
               <div className="support--content">
                 <motion.div
@@ -45,9 +45,12 @@ export function Overlay() {
                   }}>
                 <div className="home-content">
                 <div className="content-container">
-                    <p className="subtitle">Bring your NFT collections to life, powered by <br className='sm:block hidden'/>the ERC-6551 standard and generative AI.</p>
                     <p className="subtitle">
-                    <Link className={styles.cta} href="/docs">Get started →</Link>
+                      Welcome to the NPC Institute. Imagine and build never-before-seen
+                      <br className='sm:block hidden'/>
+                      game genres together with our new NPC friends!</p>
+                    <p className="subtitle">
+                    <Link className={styles.cta} href="/gamedevjs">Get started →</Link>
                     </p>
                 </div>
                 </div>

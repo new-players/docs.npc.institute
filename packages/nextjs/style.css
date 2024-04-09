@@ -27,6 +27,14 @@
   --secondary-gradient: linear-gradient(328deg, #FB6E00 0%, #FFC500 100%);
 }
 
+.nextra-nav-container div {
+  background: #FFEFDD;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+}
+
 nav {
   background: #FFEFDD;
   color: var(--npc-text);
@@ -131,7 +139,7 @@ canvas {
   font-size: 8rem;
   letter-spacing: -6px;
   font-style: italic;
-  width: 60%;
+  width: 80%;
   line-height: 10rem;
   font-family: 'Nunito Sans', sans-serif;
 }
