@@ -26,20 +26,29 @@ function CameraRig({ children }) {
   const group = useRef()
   const snap = useSnapshot(state)
   useFrame((state, delta) => {
+    if (group) {
     easing.damp3(state.camera.position, [snap.intro ? -state.viewport.width / 4 : 0, 0, 2], 0.25, delta)
     easing.dampE(group.current.rotation, [state.pointer.y / 10, -state.pointer.x / 5, 0], 0.25, delta)
+    }
   })
   return <group ref={group}>{children}</group>
 }
 
 function Logo(props) {
   const snap = useSnapshot(state)
-  const { nodes, materials } = useSpline('https://prod.spline.design/aKz6O7SBXK-8RqFC/scene.splinecode')
+  let splineGroup = useSpline('https://prod.spline.design/aKz6O7SBXK-8RqFC/scene.splinecode')
   const ref = useRef();
 
   useFrame((state, delta) => {
-    ref.current.rotation.y -= delta * 0.5
+    if (ref.current) {
+      ref.current.rotation.y -= delta * 0.5
+    }
   })
+
+  const nodes = splineGroup?.nodes;
+  const materials = splineGroup?.materials;
+
+  if (!nodes || !materials) return null
 
   return (
     
