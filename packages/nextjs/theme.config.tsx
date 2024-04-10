@@ -43,7 +43,7 @@ const config: DocsThemeConfig = {
     link: 'https://discord.gg/vcymrnvSC9'
   },
 
-  docsRepositoryBase: 'https://github.com/new-players/docs.npc.institute',
+  docsRepositoryBase: 'https://github.com/new-players/docs.npc.institute/tree/main/packages/nextjs',
   sidebar: {
     titleComponent({ title, type }) {
       if (type === 'separator') {
