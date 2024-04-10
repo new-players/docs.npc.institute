@@ -40,7 +40,7 @@ const config: DocsThemeConfig = {
     </div>
   ),
   chat: {
-    link: 'https://discord.gg/jWGttTYK'
+    link: 'https://discord.gg/vcymrnvSC9'
   },
 
   docsRepositoryBase: 'https://github.com/new-players/docs.npc.institute',
