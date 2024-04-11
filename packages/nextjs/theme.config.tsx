@@ -42,7 +42,8 @@ const config: DocsThemeConfig = {
   head: (
     <>
     <meta property="og:title" content="npc.institute" />
-    <meta property="og:description" content="The official documentation for Sweep AI." />
+    <meta property="og:description" content=" Imagine and build never-before-seen
+game genres together with our new NPC friends 😃🤝🤖" />
     <meta property="og:image" content="https://npc.institute/graph.png" />
     </>
   ),
