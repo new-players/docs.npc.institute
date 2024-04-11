@@ -51,8 +51,7 @@ export function Overlay() {
                       game genres together with our new NPC friends 😃🤝🤖
                     </p>
                     <p className="subtitle">
-                      With our partners at <a href="https://https://itch.io/jam/gamedevjs-2024" target="_blank" rel="noopener noreferrer">Gamedev.js</a>, 
-                      we are currently running the <a href="/gamedevjs">NPC Challenge.</a>
+                      We are currently running the <a href="/gamedevjs">NPC Challenge</a> with our partners at <a href="https://itch.io/jam/gamedevjs-2024" target="_blank" rel="noopener noreferrer">Gamedev.js</a>
                       <br className='sm:block hidden'/>
                       From April 13 to 26, design and build a game with a unique NPC twist.
                     </p>
