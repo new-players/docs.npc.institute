@@ -41,7 +41,7 @@ const config: DocsThemeConfig = {
   ),
   head: (
     <>
-    <meta property="og:title" content="npc.institute" />
+    <meta property="og:title" content="The NPC Institute" />
     <meta property="og:description" content=" Imagine and build never-before-seen
 game genres together with our new NPC friends 😃🤝🤖" />
     <meta property="og:image" content="https://npc.institute/graph.png" />
@@ -79,6 +79,7 @@ game genres together with our new NPC friends 😃🤝🤖" />
   darkMode: false,
   primaryHue: 25,
   primarySaturation: 100,
+  titleSuffix: null,
   navbar: {
     extraContent: (
       <>
