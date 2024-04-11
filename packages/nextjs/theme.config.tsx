@@ -39,6 +39,13 @@ const config: DocsThemeConfig = {
 
     </div>
   ),
+  head: (
+    <>
+    <meta property="og:title" content="npc.institute" />
+    <meta property="og:description" content="The official documentation for Sweep AI." />
+    <meta property="og:image" content="https://npc.institute/graph.png" />
+    </>
+  ),
   chat: {
     link: 'https://discord.gg/vcymrnvSC9'
   },
