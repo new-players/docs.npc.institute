@@ -79,7 +79,11 @@ game genres together with our new NPC friends 😃🤝🤖" />
   darkMode: false,
   primaryHue: 25,
   primarySaturation: 100,
-  titleSuffix: null,
+  useNextSeoProps: () => {
+    return {
+      titleTemplate: '%s | NPC Institute',
+    }
+  },
   navbar: {
     extraContent: (
       <>
