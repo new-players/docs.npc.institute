@@ -48,9 +48,17 @@ export function Overlay() {
                     <p className="subtitle">
                       Welcome to the NPC Institute. Imagine and build never-before-seen
                       <br className='sm:block hidden'/>
-                      game genres together with our new NPC friends!</p>
+                      game genres together with our new NPC friends 😃🤝🤖
+                    </p>
                     <p className="subtitle">
-                    <Link className={styles.cta} href="/gamedevjs">Get started →</Link>
+                      With our partners at <a href="https://https://itch.io/jam/gamedevjs-2024" target="_blank" rel="noopener noreferrer">Gamedev.js</a>, 
+                      we are currently running the <a href="/gamedevjs">NPC Challenge.</a>
+                      <br className='sm:block hidden'/>
+                      From April 13 to 26, design and build a game with a unique NPC twist.
+                    </p>
+
+                    <p className="subtitle">
+                    <Link className={styles.cta} href="/gamedevjs">Get Started →</Link>
                     </p>
                 </div>
                 </div>
