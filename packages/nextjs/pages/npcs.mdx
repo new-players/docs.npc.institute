@@ -29,14 +29,14 @@ export function AccountInfo() {
 
     return (
       (isConnected && address) ?
-      <>
+      <div className="">
           <NFTGrid address={address}/>
-      </>
+      </div>
       : <h3>Connect Wallet</h3>
     )
 
 }
 
-  <div className="mainpage" style={{ height: "800px" }}>
+  <div className="mainpage" style={{ minHeight: "800px", color:'black'}}>
     <AccountInfo/>  
   </div>

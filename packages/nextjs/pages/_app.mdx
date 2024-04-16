@@ -1,15 +1,25 @@
 import '../style.css'
 import "@rainbow-me/rainbowkit/styles.css";
+import { SessionProvider, signIn, signOut, useSession } from "next-auth/react";
+import { ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
-import { WagmiConfig } from "wagmi";
+import { WagmiConfig, useNetwork, useAccount, useSignMessage } from "wagmi";
 import { wagmiConfig } from "services/web3/wagmiConfig";
 import { appChains } from "services/web3/wagmiConnectors";
 import { BlockieAvatar } from "components/scaffold-eth";
 import { useDarkMode } from "usehooks-ts";
+import { useQuery, useMutation, useQueryClient, QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { RainbowKitProvider, darkTheme, lightTheme } from "@rainbow-me/rainbowkit";
+import { useWalletAuth } from "~~/hooks/useWalletAuth";
 
 export default function App({ Component, pageProps }) {
+  const queryClient = new QueryClient()
+  // const { status } = useSession();
+  // const { chain } = useNetwork();
+  // const { isConnected, address } = useAccount();
+  // const { signMessageAsync } = useSignMessage();
 
+  const { generateChallenge } = useWalletAuth();
   // This variable is required for initial client side rendering of correct theme for RainbowKit
   const [isDarkTheme, setIsDarkTheme] = useState(true);
   const { isDarkMode } = useDarkMode();
@@ -18,15 +28,73 @@ export default function App({ Component, pageProps }) {
     setIsDarkTheme(isDarkMode);
   }, [isDarkMode]);
 
+  // useEffect(() => {
+  //       if (chain) {
+  //           setChainId(chain.id);
+  //           handleCheckNetwork(chain.id);
+  //       }
+
+  //       if (status === "authenticated" && hasWalletChanged) {
+  //           toast.info("Connected wallet has changed, Please login again");
+  //           handleWalletChanged();
+  //       }
+
+  //       if (status === "unauthenticated" && isConnected) {
+  //           handleAuth();
+  //       }
+
+  //       if (status === "authenticated" && !isConnected) {
+  //           signOut();
+  //       }
+  //   }, [status, chain, isConnected]);
+
+    const handleAuth = async () => {
+        const walletAddress = address;
+
+        const challenge = await generateChallenge(walletAddress);
+
+        const message = challenge.message;
+        try {
+            const challengeAnswer = await signMessageAsync({ message });
+
+            signIn("credentials", {
+                walletAddress,
+                challengeAnswer,
+                redirect: false
+            });
+        } catch (error) {
+            toast.error(
+                "Login failed, signing might be rejected, please reconnect wallet to retry..."
+            );
+            return;
+        }
+    };
+
   return (
   <WagmiConfig config={wagmiConfig}>
+  <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+  />
+    <SessionProvider refetchInterval={0}>
       <RainbowKitProvider
         chains={appChains.chains}
         avatar={BlockieAvatar}
         theme={isDarkTheme ? darkTheme() : lightTheme()}
       >
-    <Component {...pageProps} />
-    </RainbowKitProvider>
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
+      </RainbowKitProvider>
+    </SessionProvider>
   </WagmiConfig>    
   )
 }
