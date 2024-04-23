@@ -1,31 +1,21 @@
 import { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
 import { useNetwork } from "wagmi";
 import LoadingSpinner from "~~/components/loading-spinner/LoadingSpinner";
 import NpcTab from "~~/components/npc-tab/NpcTab";
 import SparkBalance from "~~/components/sparks-balance/SparksBalance";
 import Switch from "~~/components/switch/Switch";
 import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
+import { useNFTs } from "~~/hooks/useNFTs";
+import { useNPCs } from "~~/hooks/useNPCs";
 import ChevronLeft from "~~/public/svgs/ChevronLeft";
 import Lock from "~~/public/svgs/Lock";
 import SparkLightning from "~~/public/svgs/SparkLightning";
 
-const selectedNFT = {
-  image: "https://arcadians.prod.outplay.games/v2/arcadians/image/1",
-  animation_url: "https://prod-xgr-arcadians-reloaded.outplay.games/animation/1",
-  external_url: "https://arcadians.io",
-  background_color: "black",
-  name: "Arcadian #1",
-  description:
-    "Customizable, playable game avatar NFTs that you will be able to use across numerous games on Arcadia.fun! You'll be able to upgrade them with equipment and cosmetics earned from games or purchased from our marketplace.",
-  attributes: [],
-  token_type: "ERC721",
-  contract_address: "0x0ba1f5c66631a54a7eb28b2228f5026944a5bc22",
-  token_id: 1,
-  isSparked: true,
-};
-
 function Spark({ tokenId }: Props) {
+  const { chain } = useNetwork();
+  const { fetchNPCMetadata } = useNPCs();
   const [selectedPreviewData, setSelectedPreviewData] = useState({
     gif: "",
   });
@@ -38,6 +28,37 @@ function Spark({ tokenId }: Props) {
   });
   const [isGenerationTypeChecked, setIsGenerationTypeChecked] = useState(false);
 
+  const { fetchNftMetadata } = useNFTs();
+
+  const { data: tokenURI } = useScaffoldContractRead({
+    contractName: "NFT",
+    functionName: "tokenURI",
+    args: [tokenId],
+  });
+
+  const {
+    data: selectedNFT,
+    isPending: nftLoading,
+    error: nftError,
+  } = useQuery({
+    queryKey: ["nftMetadata", tokenURI],
+    queryFn: () => fetchNftMetadata(tokenURI),
+    enabled: Boolean(tokenURI),
+    refetchInterval: false,
+  });
+
+  const {
+    data: nftMetaData,
+    isPending: nftMetaDataLoading,
+    error: nftMetaDataError,
+  } = useQuery({
+    queryKey: ["npcMetadata", tokenURI],
+    queryFn: () => fetchNPCMetadata(tokenId, chain.id),
+    enabled: Boolean(tokenId),
+    refetchOnWindowFocus: true,
+    refetchOnMount: "always",
+  });
+
   const generationTypeCheckHandler = () => {
     if (!isGenerationTypeChecked) {
       // toast.info("Switched to 3D Generation Output");
@@ -48,7 +69,7 @@ function Spark({ tokenId }: Props) {
   };
 
   const handleCheckFreezingStatus = () => {
-    if (selectedNFT && selectedNFT.isMetadataFreezed) {
+    if (selectedNFT && selectedNFT?.isMetadataFreezed) {
       return "Metadata is Frozen";
     }
     // if (selectedNFT && !selectedNFT.isMetadataFreezed && selectedPreviewData.gif === "") {
@@ -63,7 +84,7 @@ function Spark({ tokenId }: Props) {
     // if (selectedPreviewData.gif === "") {
     //     return false;
     // }
-    if (!selectedNFT.gif) {
+    if (!selectedNFT?.gif) {
       return true;
     }
   };
@@ -82,7 +103,7 @@ function Spark({ tokenId }: Props) {
                   <ChevronLeft className={"w-5 h-5 md:w-8 md:h-8 text-gray-500"} />
                 </span>
                 <p className="font-rubik text-[1rem] md:text-[2rem] font-semibold">
-                  {selectedNFT.name ? selectedNFT.name : "No NFT Name Metadata"}
+                  {selectedNFT?.name ? selectedNFT?.name : "No NFT Name Metadata"}
                 </p>
               </section>
               <section className="pr-2">
@@ -99,7 +120,7 @@ function Spark({ tokenId }: Props) {
                   </section>
                 </section>
               )} */}
-                  {selectedNFT && selectedNFT.isMetadataFreezed && (
+                  {selectedNFT && selectedNFT?.isMetadataFreezed && (
                     <span className="absolute flex gap-2  p-4 top-[8] left-[8] z-[100]">
                       <div className="h-[3.5rem] rounded-xl bg-black">
                         <div className="tooltip" data-tip={handleCheckFreezingStatus()}>
@@ -116,7 +137,7 @@ function Spark({ tokenId }: Props) {
                   <span className="absolute flex gap-2  p-4 top-[8] left-[8] z-[100]">
                     {!isLoadingPreview && selectedNFT && (
                       <>
-                        {selectedNFT && !selectedNFT.isMetadataFreezed && selectedNFT.token_type === "ERC721" && (
+                        {selectedNFT && !selectedNFT?.isMetadataFreezed && selectedNFT?.token_type === "ERC721" && (
                           <section className="flex gap-2 items-center">
                             <div className="h-[3.5rem] rounded-xl bg-black">
                               <div className="tooltip" data-tip="Preview NPC Generation">
@@ -158,7 +179,7 @@ function Spark({ tokenId }: Props) {
                             </div>
                           </section>
                         )}
-                        {selectedNFT && selectedNFT.isSparked && (
+                        {selectedNFT && selectedNFT?.isSparked && (
                           <div className="h-[3.5rem] rounded-xl bg-black">
                             <div className="tooltip" data-tip={handleCheckFreezingStatus()}>
                               <button
@@ -193,15 +214,15 @@ function Spark({ tokenId }: Props) {
                   </span>
 
                   <>
-                    {(selectedNFT && selectedNFT.image) || (selectedPreviewData && selectedPreviewData.gif) ? (
+                    {(selectedNFT && selectedNFT?.image) || (selectedPreviewData && selectedPreviewData.gif) ? (
                       <>
                         <Image
-                          src={selectedPreviewData.gif !== "" ? selectedPreviewData.gif : selectedNFT.image}
+                          src={selectedPreviewData.gif !== "" ? selectedPreviewData.gif : selectedNFT?.image}
                           fill
                           alt="NFT"
                           quality={100}
                           className={`rounded-2xl z-[0]`}
-                          unoptimized={selectedNFT.isMetadataFreezed}
+                          unoptimized={selectedNFT?.isMetadataFreezed}
                         />
                       </>
                     ) : (
@@ -223,12 +244,12 @@ function Spark({ tokenId }: Props) {
           )} */}
 
               <section className="flex justify-center">
-                {selectedNFT && selectedNFT.token_type == "ERC1155" && (
+                {selectedNFT && selectedNFT?.token_type == "ERC1155" && (
                   <p className="font-rubik">Sparking is not yet available for this NFT type.</p>
                 )}
                 {/* {selectedNFT && selectedNFT.isSparked && <NpcTab />} */}
                 <NpcTab />
-                {selectedNFT && !selectedNFT.isSparked && selectedNFT.token_type === "ERC721" && (
+                {selectedNFT && !selectedNFT?.isSparked && selectedNFT?.token_type === "ERC721" && (
                   <span className="h-[4rem] rounded-xl bg-black">
                     <button
                       className="btn disabled:bg-gray-300 disabled:text-bac btn-primary rounded-xl font-rubik-mono-1 text-[1rem] border-2 w-[8rem] h-[2.2rem] md:text-[1.3rem] md:w-[10rem] md:h-[3.2rem] text-black border-black "
@@ -247,7 +268,7 @@ function Spark({ tokenId }: Props) {
                         !mint ||
                         isMintLoading ||
                         isMintStarted ||
-                        (selectedNFT && selectedNFT.isSparked) ||
+                        (selectedNFT && selectedNFT?.isSparked) ||
                         loaders.isSparking
                       }
                     >

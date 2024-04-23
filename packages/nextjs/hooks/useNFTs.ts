@@ -23,7 +23,6 @@ export const useNFTs = (tokenURI: string) => {
   const { get } = useRestApi();
   const { chain } = useNetwork();
   const { address } = useAccount();
-  const GET_NFT_METADATA_PATH = "v1/nft/metadata";
   const GET_WALLET_NFTS_PATH = "/v1/nft/wallet/all";
 
   const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "";
@@ -48,7 +47,7 @@ export const useNFTs = (tokenURI: string) => {
       if (contractAddress !== "" || contract_address !== "") {
         params.contractAddress = contract_address;
       }
-      let res = await get(GET_WALLET_NFTS_PATH, params, headers, true);
+      let res = await get(GET_WALLET_NFTS_PATH, params, headers);
       console.log("res: ", res);
       return res;
     } else {
@@ -61,26 +60,16 @@ export const useNFTs = (tokenURI: string) => {
   };
 
   const fetchNftMetadata = async (tokenURI: string) => {
+    const res = await fetch(tokenURI);
+    let rawData;
+
     try {
-      const response = await axios.get(tokenURI);
-      return response.data;
+      rawData = (await res.json()) as Record<string, unknown>;
+      return rawData;
     } catch (error) {
-      throw new Error(`Error fetching NFT data: ${error.message}`);
+      console.log("Error getting data: ", error);
     }
   };
 
-  const getNFTMetadata = async (contractAddress: string, tokenId: string, chainId: number): Promise<NFT> => {
-    if (chainId && address) {
-      const headers: Record<string, string> = { chainId: String(chainId) };
-      const params: NFTMetadataParams = {
-        contractAddress: contractAddress,
-        tokenId: tokenId,
-        // refreshTokenMetadata: true
-      };
-
-      return await get(GET_NFT_METADATA_PATH, params, headers, true);
-    }
-  };
-
-  return { fetchNftMetadata, getNFTMetadata, getUserWalletNFTs };
+  return { fetchNftMetadata, getUserWalletNFTs };
 };
